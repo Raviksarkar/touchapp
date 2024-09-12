@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress ALL -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/status_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/not_connected"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+        <TextView
+            android:id="@+id/battery_percentage_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:padding="16dp"
+            android:text="@string/battery_watch"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck"
+            tools:layout_editor_absoluteX="353dp"
+            tools:layout_editor_absoluteY="1dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_bar"
+        app:layout_constraintTop_toBottomOf="@+id/day"
+        tools:ignore="NotSibling">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onExerciseRecordClick"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/first_circle"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_style_3"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintWidth_percent="0.3">
+
+                    <ProgressBar
+                        android:id="@+id/steps_progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="117.5dp"
+                        android:layout_height="117.5dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/progress_background"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/progress_foreground" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/steps_image"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:contentDescription="@string/steps"
+                            android:src="@drawable/footstep"
+                            app:layout_constraintBottom_toTopOf="@+id/steps_goal_achieved" />
+
+                        <TextView
+                            android:id="@+id/steps_goal_achieved"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/steps_goal_achieved"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck" />
+
+                        <TextView
+                            android:id="@+id/steps_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/steps"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            tools:ignore="TextContrastCheck" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/second_circle"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_style_3"
+                    android:orientation="vertical"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintWidth_percent="0.3"
+                    tools:ignore="TextSizeCheck">
+
+                    <ProgressBar
+                        android:id="@+id/distance_progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="179.7dp"
+                        android:layout_height="179.7dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/progress_background"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/progress_foreground" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/distance_circle"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:contentDescription="@string/distance"
+                            android:src="@drawable/distance" />
+
+                        <TextView
+                            android:id="@+id/distance_goal_achieved"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/steps_goal_achieved"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            tools:ignore="TextContrastCheck" />
+
+                        <TextView
+                            android:id="@+id/distance_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/distance"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/third_circle"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_style_3"
+                    android:orientation="vertical"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintWidth_percent="0.3">
+
+                    <ProgressBar
+                        android:id="@+id/calories_progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="117.5dp"
+                        android:layout_height="117.5dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/progress_background"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/progress_foreground" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/calories_image"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:contentDescription="@string/calories"
+                            android:src="@drawable/distance" />
+
+                        <TextView
+                            android:id="@+id/calories_goal_achieved"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/steps_goal_achieved"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck" />
+
+                        <TextView
+                            android:id="@+id/calories_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/calories"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            tools:ignore="TextContrastCheck" />
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onExerciseRecordClick"
+                android:orientation="vertical"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="-2dp"
+                tools:layout_editor_absoluteY="121dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/exercise_record_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/baseline_directions_run_24"
+                        android:drawablePadding="8dp"
+                        android:text="@string/exercise_record"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="25sp"
+                        tools:ignore="UseCompatTextViewDrawableXml,TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/start_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="100dp"
+                        android:text="@string/start_time"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="25sp"
+                        tools:ignore="TextContrastCheck,TextContrastCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="4dp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <TextView
+                            android:id="@+id/travel_distance_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/travel_distance"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="30sp"
+                            tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                        <ImageView
+                            android:id="@+id/run_status_image"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="50dp"
+                            android:contentDescription="@string/run_status"
+                            android:src="@drawable/running"
+                            tools:ignore="ImageContrastCheck" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="90dp"
+                        android:orientation="horizontal"
+                        android:paddingTop="16dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <ImageView
+                                android:id="@+id/stopwatch_image"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:contentDescription="@string/stopwatch"
+                                android:src="@drawable/timer"
+                                tools:ignore="ImageContrastCheck" />
+
+                            <TextView
+                                android:id="@+id/stopwatch_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stopwatch_time"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:textSize="16sp"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <ImageView
+                                android:id="@+id/distance_meter_image"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:contentDescription="@string/distance_meter"
+                                android:src="@drawable/speedometer"
+                                tools:ignore="ImageContrastCheck" />
+
+                            <TextView
+                                android:id="@+id/distance_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/travel_distance"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:textSize="16sp"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/border_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onExerciseRecordClick"
+                android:orientation="vertical"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="-2dp"
+                tools:layout_editor_absoluteY="121dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/sleep_record_text"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:drawablePadding="8dp"
+                            android:src="@drawable/sleep"
+                            android:text="@string/exercise_record"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="25sp"
+                            tools:ignore="UseCompatTextViewDrawableXml,TextContrastCheck,ImageContrastCheck" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sleep"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                tools:ignore="TextContrastCheck" />
+
+                            <TextView
+                                android:id="@+id/sleep_time_goal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/value"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/sleep_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="130dp"
+                        android:text="@string/time"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="25sp"
+                        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/baseline_keyboard_arrow_down_24"
+                        tools:ignore="ContentDescription,ImageContrastCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    tools:ignore="UselessLeaf"></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/border_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onExerciseRecordClick"
+                android:orientation="vertical"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="-2dp"
+                tools:layout_editor_absoluteY="121dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/weight_record_text"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:drawablePadding="8dp"
+                            android:src="@drawable/weight_scale1"
+                            android:text="@string/exercise_record"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="25sp"
+                            tools:ignore="UseCompatTextViewDrawableXml,TextContrastCheck,ImageContrastCheck" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/weight"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/weight_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="185dp"
+                        android:text="@string/kg"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="25sp"
+                        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/baseline_keyboard_arrow_down_24"
+                        tools:ignore="ContentDescription,ImageContrastCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    tools:ignore="UselessLeaf"></LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_frame"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="UnknownId"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/nav_button_1"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/nav_1"
+            android:src="@drawable/baseline_home_24"
+            tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/nav_button_2"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/nav_2"
+            android:padding="12dp"
+            android:src="@drawable/shoes"
+            tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/nav_button_3"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/nav_3"
+            android:padding="12dp"
+            android:src="@drawable/graph"
+            tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/nav_button_4"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/nav_4"
+            android:src="@drawable/baseline_settings_24"
+            tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints,UselessParent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/calendar_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/calendar"
+            android:src="@drawable/baseline_calendar_today_24"
+            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/back"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            tools:ignore="ImageContrastCheck" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/current_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/day"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/current_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/forward_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/forward"
+            android:src="@drawable/baseline_arrow_forward_ios_24"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/calendar_button_2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/calendar"
+            android:src="@drawable/baseline_calendar_today_24"
+            tools:ignore="ImageContrastCheck" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

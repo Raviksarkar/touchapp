@@ -1,0 +1,106 @@
+<!--suppress ALL -->
+<resources>
+    <string name="app_name">TouchApp</string>
+
+    <string name="start_policy">We appreciate that you trust us with information that is important to you.\n Our Privacy Policy is fully compliant with the latest laws and regulations.\n \n The information that our application will collect is as follows and we take every precaution to keep it safe.\n \nGender\nDate of birth\nHeight Weight\nNumber of step\nDuration of sleep\nPulse (if available)\n \nAnalytics data may be collected but is not linked to your identity\n \nPlease read the details of Privacy Policy and confirm your agreement.\n \nNOTE: We DO NOT use any data or information collected for tracking purposes.\n \nSecurity Reminder: Keep your smartphone locked to secure your activity and health data when you are away from your smart phone</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="disagree">Disagree</string>
+    <string name="agree">Agree</string>
+    <string name="permission"><h4>This App requires the following permissions:</h4></string>
+    <string name="permission_1">
+<b>Read Contacts Permission</b>\n
+
+This is used to set favorite contacts. IMPORTANT This App may upload contact list to your smart device accordi to your instructions.
+    </string>
+    <string name="permission_2"><b>Storage Permission</b>\n
+This is used to read, save and share images, system files, etc. IMPORTANT: This App may upload some images to your smart device according to your instructions.
+</string>
+    <string name="permission_3"><b>SMS Permission</b>\n
+This is used to display SMS on your smart device. IMPORTANT: This App may upload SMS to your smart device according to your instructions
+</string>
+    <string name="permission_4"><b>Location permission</b>\n
+This is used for GPS sports, Bluetooth device pairing, and local weather forecast
+</string>
+    <string name="permission_5"><b>Notifications permission</b>\n
+        This is used to display notifications on your smart device. IMPORTANT: This App may upload notifications to your smart device according to your instructions.
+
+</string>
+    <string name="permission_6"><b>Camera permission</b>\n
+This is used for your smart device to control the camera shutter of your smartphone.
+</string>
+    <string name="permission_7"><b>Answer Phone Calls Permission</b>\n
+This is used for Bluetooth pairing and connection with your smart device, incoming call notifications, etc
+</string>
+    <string name="permission_8"><b>Call Log Permission</b>\n
+This is used to display recent call log on your smart device</string>
+    <string name="ok">OK</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="logo">logo</string>
+    <string name="pairing_details">TouchApp is specially designed for all models:\n On your smart watch, you may go to Settings-Sysrtems to find your smart watch model.</string>
+    <string name="current_smart_device">Current Smart Device</string>
+    <string name="no">no</string>
+    <string name="select_date">Select Date</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="steps">Steps</string>
+    <string name="kcal">kcal</string>
+    <string name="female">Female</string>
+    <string name="calorie_goal_default">00 kcal</string>
+    <string name="calorie_goal_format">%d kcal</string>
+    <string name="male">Male</string>
+    <string name="sleep_time_default">0 hours 0 minutes</string>
+    <string name="sleep_time_format">%d hours %d minutes</string>
+    <string name="nav_1">Navigation Button 1</string>
+    <string name="nav_2">Navigation Button 2</string>
+    <string name="nav_3">Navigation Button 3</string>
+    <string name="nav_4">Navigation Button 4</string>
+
+    <string name="connected">Connected</string>
+    <string name="watch_not_connected">Watch Not Connected</string>
+    <string name="battery_percentage">%1$d%%</string>
+    <string name="battery_unknown">__%</string>
+    <string name="connect_smart_device">Connect smart device</string>
+    <string name="permission_denied_message">Permission denied, cannot check Bluetooth status</string>
+
+    <string name="calendar">Calendar</string>
+    <string name="back">back</string>
+    <string name="forward">forward</string>
+    <string name="day">Day</string>
+    <string name="date">Date</string>
+    <string name="sleep_time_format_24">%d hours %d minutes</string>
+    <string name="exercise_record">Exercise record</string>
+    <string name="start_time">--:--</string>
+    <string name="travel_distance">0.00 km</string>
+    <string name="stopwatch_time">00:00:00</string>
+
+    <!-- Format for displaying sleep time in 12-hour format -->
+    <string name="sleep_time_format_12">%d minutes %d %s</string>
+    <string name="not_connected">Not Connected</string>
+    <string name="battery_watch">__%</string>
+    <string name="run_status">Running status</string>
+    <string name="stopwatch">Stop-watch</string>
+    <string name="distance_meter">Distance meter\n</string>
+    <string name="steps_goal_achieved">00</string>
+    <string name="distance">Distance</string>
+    <string name="distance_goal_achieved">00</string>
+    <string name="calories">Calories</string>
+    <string name="calories_goal_achieved">00</string>
+    <string name="sleep">Sleep</string>
+    <string name="weight">Weight</string>
+    <string name="value">--:--</string>
+    <string name="time">0 H 0 min</string>
+    <string name="kg">00 kg</string>
+    <string name="setting">Setting</string>
+    <string name="button_1">Button 1</string>
+    <string name="button_2">Button 2</string>
+    <string name="button_3">Button 3</string>
+    <string name="button_4">Button 4</string>
+    <string name="button_7">Button 7</string>
+    <string name="button_9">Button 9</string>
+    <string name="button_8">Button 8</string>
+    <string name="button_10">Button 10</string>
+    <string name="button_11">Button 11</string>
+    <string name="button_12">Button 12</string>
+
+
+</resources>
